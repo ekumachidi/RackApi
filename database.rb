@@ -2,7 +2,7 @@ class Database
   USERS = {
     1 => { name: "Jason", bike: "Cannondale" },
     2 => { name: "Caroline", bike: "Trek" }, 
-    3 => { name: "", bike: "" },
+    3 => { name: "Debby", bike: "Yamaha" },
     4 => { name: "Chidi", bike: "Harley D" }
   }
 
@@ -18,5 +18,9 @@ class Database
 
   def self.rides
     RIDES
+  end
+
+  def self.add_ride(ride)
+    RIDES.store(RIDES.keys.last+1, ride)
   end
 end
