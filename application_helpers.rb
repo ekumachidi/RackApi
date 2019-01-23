@@ -6,7 +6,7 @@ module ApplicationHelpers
 
   def error(response, message, status = 400)
     response.status = status
-    response.write(JSON.generate({"ERROR: #{message}"}))
+    response.write(JSON.generate({ ERROR: message }))
   end
 
   def respond_with_object(response, object)

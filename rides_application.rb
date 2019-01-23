@@ -2,7 +2,7 @@ require 'json'
 
 class RidesApplication
   include ApplicationHelpers
-  
+
   def call(env)
     request = Rack::Request.new(env)
     
@@ -46,7 +46,7 @@ class RidesApplication
     if ride.nil?
       missing(request, response)
     else
-      respond_with_object(response, Database.rides[id]))
+      respond_with_object(response, Database.rides[id])
     end      
   end  
 end
