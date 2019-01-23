@@ -4,6 +4,7 @@ class UsersApplication
   def call(env)
     response = Rack::Response.new
     response.headers["Content-Type"] = "application/json"
+    
     if env["PATH_INFO"] == ""
       response.write(JSON.generate(Database.users))
     elsif env["PATH_INFO"] =~ %r{/\d+}

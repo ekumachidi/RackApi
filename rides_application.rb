@@ -3,13 +3,16 @@ require 'json'
 class RidesApplication
   def call(env)
     request = Rack::Request.new(env)
+    
     response = Rack::Response.new
     response.headers["Content-Type"] = "application/json"
+    
     if env["PATH_INFO"] == ""
       if request.post?
         ride = JSON.parse(request.body.read)
         Database.add_ride(ride)
-        [200, {}, ["Rides saved successfully"]]
+        response.status = 200
+        response.write("Rides saved successfully")
       else
         response.write(JSON.generate(Database.rides))
       end
@@ -19,6 +22,8 @@ class RidesApplication
     else
       response.status = 404
       response.write("Oops....There's Nothing here")
-    end    
+    end  
+
+    response.finish  
   end
 end
