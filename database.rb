@@ -6,8 +6,12 @@ class Database
     4 => { name: "Chidi", bike: "Harley D" }
   }
 
-  def self.users
-    USERS
+  def self.users(user_id)
+    USERS.select { |id, _| id == user_id  }
+  end
+
+  def self.user_by_api_key(key)
+    USERS.values.find { |user| user[:api_key] == key }
   end
 
   RIDES = {
@@ -21,6 +25,6 @@ class Database
   end
 
   def self.add_ride(ride)
-    RIDES.store(RIDES.keys.last+1, ride)
+    RIDES.store(RIDES.keys.max + 1, ride)
   end
 end

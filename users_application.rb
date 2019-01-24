@@ -25,7 +25,7 @@ class UsersApplication
   end
 
   def get_all_users(request, response)
-    respond_with_object(response, Database.users)
+    respond_with_object(response, Database.users(request.env["rides_app.user_id"]))
   end
 
   def get_a_user(request, response)
