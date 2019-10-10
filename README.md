@@ -11,7 +11,8 @@ These instructions will help you get a copy of the project up and running on you
 What things you need to install the software and how to install them
 
 ```
-You need to have installed Ruby. This project was done using ruby 2.5.1
+You need to have installed Ruby.
+This project was done using ruby 2.5.1
 ```
 
 ### Installing
@@ -19,10 +20,6 @@ You need to have installed Ruby. This project was done using ruby 2.5.1
 A step by step series of examples that tell you how to get a development env running
 
 Run `bundle`
-
-```
-Some  example
-```
 
 To run the application use:
 
@@ -34,8 +31,9 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
+```
+Tests will be incoporated in a later iteration
+```
 ### Break down into end to end tests
 
 Explain what these tests test and why
