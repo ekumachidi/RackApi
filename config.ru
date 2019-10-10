@@ -9,7 +9,7 @@ require_relative 'rides_application'
 
 require_relative 'database'
 
-if ENV["RACK_ENV"] == "production"
+if ENV['RACK_ENV'] == 'production'
 	use Rack::NullLogger
 	use Rack::CommonLogger
 else
@@ -20,10 +20,10 @@ use ApiKey
 use ValidateContentType
 use WhoIsCalling
 
-map("/users") do
+map('/users') do
   run UsersApplication.new
 end
 
-map("/rides") do
+map('/rides') do
   run RidesApplication.new
 end

@@ -8,9 +8,8 @@ class UsersApplication
 
     response = Rack::Response.new
     response.headers["Content-Type"] = "application/json"
-    
-    
-    case request.path_info 
+
+    case request.path_info
     when request.post? && ""
       post_a_user(request, response)
     when request.get? && ""
@@ -19,7 +18,7 @@ class UsersApplication
       get_a_user(request, response)
     else
       missing(request, response)
-    end   
+    end
 
     response.finish
   end
@@ -35,6 +34,6 @@ class UsersApplication
       missing(request, response)
     else
       respond_with_object(response, Database.users[id])
-    end      
+    end
   end
 end
